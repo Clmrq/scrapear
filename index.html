@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta description="Ejemplo de scrapping a Fontaneria Marquez" />
+        <title>Scrapping a Fontaneria Marquez</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>EXTRACTOR DE DATOS</h1>
+        </header>
+
+        <section>
+            <h2>Utilizando la clase Simple_HTML_DOM.</h2>
+
+            <article>
+                <section>
+                    <?php
+                        require_once './simple_html_dom.php';
+                        $html = file_get_html('https://www.fontaneriamarquez.com/');
+                        $datos = $html->find('div[id="tele"]');
+                        foreach ($datos as $dato) {
+                            echo $dato . "<hr>\n";
+                        }
+					
+                    ?>
+                </section>
+            </article>
+        </section>
+    </body>
+
+</html>
